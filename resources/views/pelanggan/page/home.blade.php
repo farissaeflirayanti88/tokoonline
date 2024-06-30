@@ -44,7 +44,7 @@
                         <p class="m-0"><i class="fa-regular fa-star"></i> 5+</p>
                     </div>
                     <div class="card-footer d-flex flex-row justify-content-between align-items-center">
-                        <p class="m-0" style="font-size: 16px; font-weight:600;"><span>IDR
+                        <p class="m-0" style="font-size: 15px; font-weight:600;"><span>IDR
                             </span>{{ number_format($p->harga) }}</p>
                         <form action="{{route('addTocart')}}" method="POST">
                             @csrf

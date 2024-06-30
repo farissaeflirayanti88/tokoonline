@@ -5,7 +5,7 @@
         <div class="" style="width: 30%;">
             <div class="card" style="width: 18rem;">
                 <div class="card-header">
-                    Kategory
+                    Kategori
                 </div>
                 <div class="card-body">
                     <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -14,7 +14,7 @@
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapseOne" aria-expanded="false"
                                     aria-controls="flush-collapseOne">
-                                    Pria
+                                    Novel & Komik
                                 </button>
                             </h2>
                             <div id="flush-collapseOne" class="accordion-collapse collapse"
@@ -22,17 +22,21 @@
                                 <div class="accordion-body">
                                     <div class="d-flex flex-column gap-4">
                                         <div class="d-flex flex-row gap-3">
-                                            <input type="checkbox" name="kategory" class="kategory" value="celana Pria">
-                                            <span>Celana Pria</span>
+                                            <input type="checkbox" name="kategory" class="kategory" value="romantis">
+                                            <span>Romantis</span>
                                         </div>
                                         <div class="d-flex flex-row gap-3">
-                                            <input type="checkbox" name="kategory" class="kategory" value="baju Pria">
-                                            <span>Baju Pria</span>
+                                            <input type="checkbox" name="kategory" class="kategory" value="fantasi">
+                                            <span>Fantasi</span>
                                         </div>
                                         <div class="d-flex flex-row gap-3">
-                                            <input type="checkbox" name="kategory" class="kategory" value="aksesoris Pria">
-                                            <span>Aksesoris Pria</span>
+                                            <input type="checkbox" name="kategory" class="kategory" value="mystery">
+                                            <span>Mystery</span>
                                         </div>
+                                        <div class="d-flex flex-row gap-3">
+                                            <input type="checkbox" name="kategory" class="kategory" value="petualangan">
+                                            <span>Petualangan</span>
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -42,7 +46,7 @@
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapseTwo" aria-expanded="false"
                                     aria-controls="flush-collapseTwo">
-                                    Wanita
+                                    Buku Pelajaran & Buku Umum
                                 </button>
                             </h2>
                             <div id="flush-collapseTwo" class="accordion-collapse collapse"
@@ -53,16 +57,16 @@
                                             <div class="d-flex flex-row gap-3">
                                                 <input type="checkbox" name="kategory" class="kategory"
                                                     value="celana Wanita">
-                                                <span>Celana Wanita</span>
+                                                <span>Buku SMA</span>
                                             </div>
                                             <div class="d-flex flex-row gap-3">
                                                 <input type="checkbox" name="kategory" class="kategory" value="baju Wanita">
-                                                <span>Baju Wanita</span>
+                                                <span>Buku Codingan</span>
                                             </div>
                                             <div class="d-flex flex-row gap-3">
                                                 <input type="checkbox" name="kategory" class="kategory"
                                                     value="aksesoris Wanita">
-                                                <span>Aksesoris Wanita</span>
+                                                <span>Buku SNBP</span>
                                             </div>
                                         </div>
                                     </div>
@@ -74,7 +78,7 @@
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapseThree" aria-expanded="false"
                                     aria-controls="flush-collapseThree">
-                                    Anak-anak
+                                    Buku Anak-anak
                                 </button>
                             </h2>
                             <div id="flush-collapseThree" class="accordion-collapse collapse"
@@ -85,17 +89,17 @@
                                             <div class="d-flex flex-row gap-3">
                                                 <input type="checkbox" name="kategory" class="kategory"
                                                     value="celana anak-anak">
-                                                <span>Celana Anak-anak</span>
+                                                <span>Buku Berhitung</span>
                                             </div>
                                             <div class="d-flex flex-row gap-3">
                                                 <input type="checkbox" name="kategory" class="kategory"
                                                     value="baju anak-anak">
-                                                <span>Baju Anak-anak</span>
+                                                <span>Buku Membaca</span>
                                             </div>
                                             <div class="d-flex flex-row gap-3">
                                                 <input type="checkbox" name="kategory" class="kategory"
                                                     value="aksesoris anak-anak">
-                                                <span>Aksesoris Anak-anak</span>
+                                                <span>Buku Islamic</span>
                                             </div>
                                         </div>
                                     </div>
@@ -106,7 +110,8 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex flex-wrap gap-4 mb-5" id="filterResult">
+
+        <div class="d-flex flex-wrap gap-4 mb-5" id="filterResult" style="flex-grow: 1;">
             @if ($data->isEmpty())
                 <h1>Belum ada product ...!</h1>
             @else
@@ -123,12 +128,13 @@
                         <div class="card-footer d-flex flex-row justify-content-between align-items-center">
                             <p class="m-0" style="font-size: 14px; font-weight:600;"><span>IDR
                                 </span>{{ number_format($p->harga) }}</p>
-                            <button class="btn btn-outline-primary" style="font-size:24px">
+                            <button class="btn btn-outline-primary btn-add-to-cart" data-product-id="{{ $p->id }}" style="font-size:24px">
                                 <i class="fa-solid fa-cart-plus"></i>
                             </button>
                         </div>
                     </div>
                 @endforeach
+            @endif
         </div>
     </div>
     <div class="pagination d-flex flex-row justify-content-between">
@@ -139,7 +145,6 @@
             {{ $data->links() }}
         </div>
     </div>
-    @endif
 
     <script>
         $(document).ready(function() {

@@ -1,6 +1,6 @@
 <aside
-    class="sidebar navbar navbar-expand-lg bg-dark d-flex flex-column gap-4 align-content-lg-center mx-2 my-2 rounded">
-    <h5 class="navbar-brand">Toko Online Kita</h5>
+    class="sidebar navbar navbar-expand-lg bg-warning d-flex flex-column gap-4 align-content-lg-center mx-2 my-2 rounded">
+        <h5 class="navbar-brand">LUMINARY READS</h5>
     {{-- <hr class="" style="color: white;font-weight:800"> --}}
     <div class="collapse navbar-collapse flex-grow-0" id="navbarNavDropdown">
         <ul class="navbar-nav flex-column gap-3 px-2">
@@ -16,7 +16,7 @@
                 <a href="product" class="">
                     <div class="d-flex gap-3">
                         <span class="material-icons">inventory</span>
-                        <p class="m-0 p-0">Product</p>
+                        <p class="m-0 p-0">Produk</p>
                     </div>
                 </a>
             </li>
@@ -48,7 +48,7 @@
                 <a href="logout" class="">
                     <div class="d-flex gap-3">
                         <span class="material-icons">logout</span>
-                        <p class="m-0 p-0">Logout</p>
+                        <p class="m-0 p-0">Keluar</p>
                     </div>
                 </a>
             </li>

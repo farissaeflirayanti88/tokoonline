@@ -29,8 +29,8 @@
                         <div class="col-sm-7">
                             <select type="text" class="form-control" id="type" name="type">
                                 <option value=""> Pilih Type </option>
-                                <option value="celana" {{ $data->type === 'celana' ? 'selected' : '' }}>Celana</option>
-                                <option value="baju" {{ $data->type === 'baju' ? 'selected' : '' }}>Baju</option>
+                                <option value="romantis" {{ $data->type === 'romantis' ? 'selected' : '' }}>Romantis</option>
+                                <option value="aksi" {{ $data->type === 'aksi' ? 'selected' : '' }}>Aksi</option>
                                 <option value="aksesoris" {{ $data->type === 'aksesoris' ? 'selected' : '' }}>Aksesoris
                                 </option>
                             </select>
@@ -41,8 +41,8 @@
                         <div class="col-sm-7">
                             <select type="text" class="form-control" id="kategori" name="kategori">
                                 <option value=""> Pilih Kategori </option>
-                                <option value="Pria" {{ $data->kategory === 'Pria' ? 'selected' : '' }}>Pria</option>
-                                <option value="Wanita" {{ $data->kategory === 'wanita' ? 'selected' : '' }}>Wanita
+                                <option value="Dewasa" {{ $data->kategory === 'Dewasa' ? 'selected' : '' }}>Dewasa</option>
+                                <option value="Remaja" {{ $data->kategory === 'Remaja' ? 'selected' : '' }}>Remaja
                                 </option>
                                 <option value="Anak-anak" {{ $data->kategory === 'Anak-anak' ? 'selected' : '' }}>
                                     Anak-anak</option>

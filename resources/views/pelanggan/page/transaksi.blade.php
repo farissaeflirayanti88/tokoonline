@@ -9,8 +9,7 @@
         }
     </style>
     <h3 class="mt-5 mb-5">Keranjang Belanja</h3>
-    @if (!$data)
-    @else
+    @if (!$data->isEmpty())
         @foreach ($data as $x)
             <div class="card mb-3">
                 <div class="card-body d-flex gap-4">
@@ -25,11 +24,11 @@
                             <div class="row mb-2">
                                 <label for="qty" class="col-sm-2 col-form-label fs-5">Quantity</label>
                                 <div class="col-sm-5 d-flex">
-                                    <button class="rounded-start bg-secondary p-2 border border-0 plus"
+                                    <button type="button" class="rounded-start bg-secondary p-2 border border-0 plus"
                                         id="plus">+</button>
                                     <input type="number" name="qty" class="form-control w-25 text-center qty"
-                                        id="qty" name="qty" value="{{ $x->qty }}">
-                                    <button class="rounded-end bg-secondary p-2 border border-0 minus" id="minus"
+                                        id="qty" value="{{ $x->qty }}">
+                                    <button type="button" class="rounded-end bg-secondary p-2 border border-0 minus" id="minus"
                                         disabled>-</button>
                                 </div>
                             </div>
@@ -43,17 +42,40 @@
                                     <i class="fa fa-shopping-cart"></i>
                                     Checkout
                                 </button>
-                                <button class="btn btn-danger col-sm-5">
+                                <button type="button" class="btn btn-danger delete-btn col-sm-5" data-id="{{ $x->id }}">
                                     <i class="fa fa-trash-alt"></i>
                                     Delete
                                 </button>
                             </div>
                         </div>
                     </form>
+                    <form class="delete-form" action="{{ route('delete.item', ['id' => $x->id]) }}" method="POST" style="display:none;">
+                        @csrf
+                        @method('DELETE')
+                    </form>
                 </div>
             </div>
         @endforeach
+    @else
+        <p>Keranjang belanja kosong.</p>
     @endif
+@endsection
 
+@section('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteButtons = document.querySelectorAll('.delete-btn');
 
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const confirmation = confirm('Are you sure you want to delete this item from the cart?');
+
+                    if (confirmation) {
+                        const deleteForm = this.closest('.card').querySelector('.delete-form');
+                        deleteForm.submit();
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

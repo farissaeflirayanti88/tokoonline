@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [TransaksiController::class, 'index'])->name('home');
 Route::POST('/addTocart', [TransaksiController::class, 'addTocart'])->name('addTocart');
+Route::DELETE('/tblCart', [TransaksiController::class, 'destroy'])->name('delete.item');
 Route::POST('/storePelanggan', [UserController::class, 'storePelanggan'])->name('storePelanggan');
 Route::POST('/login_pelanggan', [UserController::class, 'loginProses'])->name('loginproses.pelanggan');
 Route::GET('/logout_pelanggan', [UserController::class, 'logout'])->name('logout.pelanggan');

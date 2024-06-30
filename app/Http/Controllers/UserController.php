@@ -30,6 +30,13 @@ class UserController extends Controller
     }
     public function store(UserRequest $request)
     {
+        $email = $request->input('email');
+        if (User::whereEmail($email)->exists()) {
+            // Email address already exists, return an error message
+            Alert::toast('Email address already exists', 'error');
+            return back()->withErrors(['email' => 'Email address already exists']);
+        }
+    
         $data = new User;
         $data->nik          = $request->nik;
         $data->name         = $request->nama;
@@ -42,8 +49,7 @@ class UserController extends Controller
         $data->is_active    = 1;
         $data->is_mamber    = 0;
         $data->is_admin     = 1;
-
-        // dd($request);die;
+    
         if ($request->hasFile('foto')) {
             $photo = $request->file('foto');
             $filename = date('Ymd') . '_' . $photo->getClientOriginalName();
@@ -109,51 +115,64 @@ class UserController extends Controller
     }
     public function storePelanggan(UserRequest $request)
     {
+        $email = $request->input('email');
+        if (User::whereEmail($email)->exists()) {
+            // Email address already exists, return an error message
+            Alert::toast('Email address already exists', 'error');
+            return back()->withErrors(['email' => 'Email address already exists']);
+        }
+    
         $data = new User;
-        $nik  = "Member" . rand(000, 999);
+        $nik  = "Member". rand(000, 999);
         $data->nik          = $nik;
         $data->name         = $request->name;
         $data->email        = $request->email;
         $data->password     = bcrypt($request->password);
-        $data->alamat       = $request->alamat . " " . $request->alamat2;
+        $data->alamat       = $request->alamat. " ". $request->alamat2;
         $data->tlp          = $request->tlp;
         $data->role         = 0;
         $data->tglLahir     = $request->date;
         $data->is_active    = 1;
         $data->is_mamber    = 1;
         $data->is_admin     = 0;
-
-        // dd($request);die;
-
-        if ($request->hasFile('foto') == "") {
-            $filename = "default.png";
-            $data->foto = $filename;
-        } else {
+    
+        if ($request->hasFile('foto')) {
             $photo = $request->file('foto');
-            $filename = date('Ymd') . '_' . $photo->getClientOriginalName();
+            $filename = date('Ymd'). '_'. $photo->getClientOriginalName();
             $photo->move(public_path('storage/user'), $filename);
             $data->foto = $filename;
+        } else {
+            $filename = "default.png";
+            $data->foto = $filename;
         }
+    
         $data->save();
         Alert::toast('Data berhasil disimpan', 'success');
         return redirect()->route('home');
-    }
+        
+    }    
+    
     public function loginProses(Request $request)
     {
         $dataLogin = [
             'email' => $request->email,
             'password'  => $request->password,
         ];
-
-        $user = new User;
-        $proses = $user::where('email', $request->email)->first();
-
-        if ($proses->is_active === 0) {
+    
+        $user = User::where('email', $request->email)->first();
+    
+        if (!$user) {
+            Alert::toast('Email tidak ditemukan', 'error');
+            return back();
+        }
+    
+        if (!$user->is_active) {
             Alert::toast('Kamu belum register', 'error');
             return back();
         }
+    
         if (Auth::attempt($dataLogin)) {
-            Alert::toast('Kamu berhasil login', 'success');
+            Alert::toast('Kamu berhasil login', 'uccess');
             $request->session()->regenerate();
             return redirect()->intended('/');
         } else {
@@ -161,7 +180,7 @@ class UserController extends Controller
             return back();
         }
     }
-
+    
     public function logout()
     {
         Auth::logout();

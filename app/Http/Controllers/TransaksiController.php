@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace App\Http\Controllers;
 
@@ -18,14 +18,14 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        $best = product::where('quantity_out','>=',5)->get();
+        $best = product::where('quantity_out', '>=', 5)->get();
         $data = product::paginate(15);
         $countKeranjang = tblCart::where(['idUser' => 'guest123', 'status' => 0])->count();
         return view('pelanggan.page.home', [
-            'title'     => 'Home',
-            'data'      => $data,
-            'best'      => $best,
-            'count'     => $countKeranjang,
+            'title' => 'Home',
+            'data' => $data,
+            'best' => $best,
+            'count' => $countKeranjang,
         ]);
     }
 
@@ -36,16 +36,16 @@ class TransaksiController extends Controller
     {
         $idProduct = $request->input('idProduct');
 
-        $db = new tblCart ;
         $product = product::find($idProduct);
         $field = [
-            'idUser'    => 'guest123',
+            'idUser' => 'guest123',
             'id_barang' => $idProduct,
-            'qty'       => 1,
-            'price'     => $product->harga,
+            'qty' => 1,
+            'price' => $product->harga,
         ];
 
-        $db::create($field);
+        tblCart::create($field);
+
         return redirect('/');
     }
 
@@ -82,10 +82,13 @@ class TransaksiController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete item from tblcart
      */
-    public function destroy(transaksi $transaksi)
-    {
-        //
-    }
-}
+   
+     public function destroy(transaksi $request, $id)
+     {
+         $cart = tblCart::findOrFail($id);
+         $cart->delete();
+         return redirect()->route('delete.item');
+     }
+ }

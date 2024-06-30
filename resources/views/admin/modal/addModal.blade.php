@@ -27,20 +27,18 @@
                         <div class="col-sm-7">
                             <select type="text" class="form-control" id="type" name="type">
                                 <option value=""> Pilih Type </option>
-                                <option value="celana">Celana</option>
-                                <option value="baju">Baju</option>
-                                <option value="aksesoris">Aksesoris</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="kategori" class="col-sm-5 col-form-label">Kategori Product</label>
-                        <div class="col-sm-7">
-                            <select type="text" class="form-control" id="kategori" name="kategori">
-                                <option value=""> Pilih Kategori </option>
-                                <option value="Pria">Pria</option>
-                                <option value="Wanita">Wanita</option>
-                                <option value="Anak-anak">Anak-anak</option>
+                                <option value="romantis">Romantis</option>
+                                <option value="romantis">Komik</option>
+                                <option value="aksi">Aksi</option>
+                                <option value="fantasi">Fantasi</option>
+                                <option value="fiksi remaja">Fiksi Remaja</option>
+                                <option value="horor">Horor</option>
+                                <option value="misteri">Misteri</option>
+                                <option value="non fiksi">Non-Fiksi</option>
+                                <option value="Pelajaran">Pelajaran</option>
+                                <option value="klasik">Klasik</option>
+                                <option value="sejarah">Sejarah</option>
+
                             </select>
                         </div>
                     </div>
@@ -50,6 +48,17 @@
                             <input type="number" class="form-control" id="harga" name="harga">
                         </div>
                     </div>
+                    <div class="mb-3 row">
+                        <label for="kategori" class="col-sm-5 col-form-label">Kategori Product</label>
+                        <div class="col-sm-7">
+                            <select type="text" class="form-control" id="kategori" name="kategori">
+                                <option value=""> Pilih Kategori </option>
+                                <option value="Novel & Komik">Novel & Komik</option>
+                                <option value="Buku Pelajaran">Buku Pelajaran</option>
+                                <option value="Buku Anak-Anak">Buku Anak-Anak</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="mb-3 row">
                         <label for="quantity" class="col-sm-5 col-form-label">Qty Product</label>
                         <div class="col-sm-7">

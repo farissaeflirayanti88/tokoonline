@@ -1,11 +1,9 @@
 <div class="d-flex justify-content-between gap-5 pt-4 mt-5">
     <div class="title-left w-25">
         <div class="header-title fs-4 mb-2 font-weight-bolder">
-            TOKO ONLINE KITA
+            LUMINARY READS
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus repudiandae optio a illo
-            accusantium deserunt officiis distinctio suscipit ut eveniet, deleniti non aut eaque, ipsum
-            quaerat, natus nisi asperiores amet.</p>
+        <p>Website Penjualan Buku</p>
     </div>
     <div class="title-middle w-25">
         <div class="header-title fs-4 mb-2 font-weight-bolder">
@@ -14,15 +12,17 @@
         <ul class="list-unstyled">
             <li>
                 <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam dignissimos quasi
-                    nobis autem explicabo! Voluptas!
+                    Luminary Reads adalah platform online terkemuka untuk menemukan dan membeli buku berkualitas. 
+                    Kami menawarkan berbagai macam buku dari berbagai genre, yang dapat diakses dengan mudah dan cepat. 
+                    Kami berdedikasi untuk memberikan pengalaman berbelanja yang nyaman dengan pengiriman cepat dan metode pembayaran yang aman.
+
                 </p>
             </li>
             <li>
-                <p>091231231232</p>
+                <p></p>
             </li>
             <li>
-                p2312321312313
+                
             </li>
         </ul>
     </div>
@@ -39,5 +39,5 @@
     </div>
 </div>
 <div class="text-center p-lg-4 mt-3">
-    Copy right @ StudyKuy 2023</i>
+    Copy right @ Luminary Reads 2024</i>
 </div>

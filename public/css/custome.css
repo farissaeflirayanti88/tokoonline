@@ -27,7 +27,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #006786e0;
+    background-color: #b19000e0;
     padding: 10px;
     width: 200px;
     z-index: 9999;
@@ -78,7 +78,7 @@ section {
 footer {
     position: static;
     bottom: 0;
-    background-color: #025464;
+    background-color: #996600;
     color: white;
 }
 
